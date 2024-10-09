@@ -352,6 +352,7 @@
 @interface AWEPlayVideoPlayerController : NSObject
 @property(nonatomic) AWEAwemeBaseViewController *container;
 - (void)setPlayerSeekTime:(double)arg1 completion:(id)arg2;
+- (void)setPlaybackRate:(CGFloat)arg1;
 @end
 
 @interface TTKSearchEntranceButton: UIButton
