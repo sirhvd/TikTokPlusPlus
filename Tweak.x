@@ -45,23 +45,15 @@ static BOOL isAuthenticationShowed = FALSE;
 }
 %end
 
-
 %hook AWEPlayVideoPlayerController
 - (void)setPlaybackRate:(CGFloat)arg1 {
+    %orig;
     if ([BHIManager speedEnabled]) {
         NSNumber *number = [BHIManager selectedSpeed];
         %orig([number floatValue]);
     } else {
         %orig;
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    %orig(animated); // Call the original method first
-
-    AVPlaybackSpeed customSpeed;
-    customSpeed.rate = 2.0;
-    [self selectSpeed:customSpeed];
 }
 %end
 
