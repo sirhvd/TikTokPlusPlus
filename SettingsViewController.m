@@ -82,6 +82,12 @@
     // Assign titles and values
     [linkListCell setProperty:validTitles forKey:@"titleDictionary"];
     [linkListCell setProperty:validValues forKey:@"values"];
+
+    NSMutableDictionary *titleDict = [NSMutableDictionary dictionary];
+    for (NSInteger i = 0; i < speedTitles.count; i++) {
+        titleDict[speedValues[i]] = speedTitles[i];
+    }
+    [linkListCell setProperty:titleDict forKey:@"titleDictionary"];
     
     if (rule != nil) {
         [linkListCell setProperty:rule forKey:@"dynamicRule"];
