@@ -1,15 +1,11 @@
-name: Build and release
+name: Build and release tweak
 
 on: [workflow_dispatch]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build:
-    name: Build and release
-    runs-on: macos-latest
+    name: Build and release tweak
+    runs-on: macos-14
     permissions:
       contents: write
 
@@ -17,7 +13,6 @@ jobs:
       - name: Checkout Main
         uses: actions/checkout@v4
         with:
-          path: main
           submodules: recursive
 
       - name: Caching brew dependencies
@@ -41,16 +36,16 @@ jobs:
           ref: master
           path: theos
           submodules: recursive
-      
+
       - name: Caching SDK
         id: SDK
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.0
         env:
           cache-name: iOS-16.5-SDK
         with:
           path: theos/sdks/
           key: ${{ env.cache-name }}
-      
+
       - name: Download iOS 16.5 SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
@@ -78,6 +73,8 @@ jobs:
       - name: Build package
         run: |
           make package
+        env:
+          THEOS: ${{ github.workspace }}/theos
 
       - name: Parse control file version
         id: parse_control
