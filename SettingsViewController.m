@@ -78,8 +78,7 @@
     
     [linkListCell setProperty:keyText forKey:@"key"];
     [linkListCell setProperty:defValue forKey:@"default"];
-    [linkListCell setProperty:validValues forKey:@"validValues"];
-    [linkListCell setProperty:validTitles forKey:@"validTitles"];
+    [linkListCell setValues:validValues titles:validTitles];
     
     if (rule != nil) {
         [linkListCell setProperty:rule forKey:@"dynamicRule"];
