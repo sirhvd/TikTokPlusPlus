@@ -78,16 +78,7 @@
     
     [linkListCell setProperty:keyText forKey:@"key"];
     [linkListCell setProperty:defValue forKey:@"default"];
-    
-    // Assign titles and values
-    [linkListCell setProperty:validTitles forKey:@"titleDictionary"];
-    [linkListCell setProperty:validValues forKey:@"values"];
-
-    NSMutableDictionary *titleDict = [NSMutableDictionary dictionary];
-    for (NSInteger i = 0; i < validTitles.count; i++) {
-        titleDict[validValues[i]] = validTitles[i];
-    }
-    [linkListCell setProperty:titleDict forKey:@"titleDictionary"];
+    [linkListCell setValues:validValues titles:validTitles];
     
     if (rule != nil) {
         [linkListCell setProperty:rule forKey:@"dynamicRule"];
