@@ -84,8 +84,8 @@
     [linkListCell setProperty:validValues forKey:@"values"];
 
     NSMutableDictionary *titleDict = [NSMutableDictionary dictionary];
-    for (NSInteger i = 0; i < speedTitles.count; i++) {
-        titleDict[speedValues[i]] = validTitles[i];
+    for (NSInteger i = 0; i < validTitles.count; i++) {
+        titleDict[validValues[i]] = validTitles[i];
     }
     [linkListCell setProperty:titleDict forKey:@"titleDictionary"];
     
