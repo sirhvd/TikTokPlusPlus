@@ -47,14 +47,8 @@ static BOOL isAuthenticationShowed = FALSE;
 
 %hook AWEPlayVideoPlayerController
 - (void)setPlaybackRate:(CGFloat)arg1 {
-
-     [%c(AWEUIAlertView) showAlertWithTitle:@"BHTikTok, Hi" description:@"Playback." image:nil actionButtonTitle:@"OK" cancelButtonTitle:nil actionBlock:nil cancelBlock:nil];
-
      if ([BHIManager speedEnabled]) {
         NSNumber *number = [BHIManager selectedSpeed];
-
-	[%c(AWEUIAlertView) showAlertWithTitle:@"BHTikTok, Hi" description:[NSString stringWithFormat:@"Speed: %@", number] image:nil actionButtonTitle:@"OK" cancelButtonTitle:nil actionBlock:nil cancelBlock:nil];
-
         %orig([number floatValue]);
     } else {
         %orig;
