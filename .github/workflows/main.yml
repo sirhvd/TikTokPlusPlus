@@ -72,7 +72,7 @@ jobs:
 
       - name: Build package
         run: |
-          make package
+           make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
         env:
           THEOS: ${{ github.workspace }}/theos
 
