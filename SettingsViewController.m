@@ -80,7 +80,7 @@
     [linkListCell setProperty:defValue forKey:@"default"];
     
     // Assign titles and values
-    [linkListCell setProperty:validTitles forKey:@"titles"];
+    // [linkListCell setProperty:validTitles forKey:@"titleDict"];
     [linkListCell setProperty:validValues forKey:@"values"];
     
     if (rule != nil) {
