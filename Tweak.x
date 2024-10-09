@@ -49,6 +49,10 @@ static BOOL isAuthenticationShowed = FALSE;
 - (void)setPlaybackRate:(CGFloat)arg1 {
      if ([BHIManager speedEnabled]) {
         NSNumber *number = [BHIManager selectedSpeed];
+
+	NSString *numberString = [number stringValue];
+	[%c(AWEUIAlertView) showAlertWithTitle:@"BHTikTok, Hi" description:[NSString stringWithFormat:@"Speed: %@", numberString] image:nil actionButtonTitle:@"OK" cancelButtonTitle:nil actionBlock:nil cancelBlock:nil];
+
         %orig([number floatValue]);
     } else {
         %orig;
