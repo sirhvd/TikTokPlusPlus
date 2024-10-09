@@ -7,6 +7,10 @@
 
 #import "SettingsViewController.h"
 
+@interface PSSpecifier (Custom)
+- (void)setValues:(id)arg1 titles:(id)arg2;
+@end
+
 @interface SettingsViewController ()
 @property (nonatomic, assign) BOOL hasDynamicSpecifiers;
 @property (nonatomic, retain) NSMutableDictionary *dynamicSpecifiers;
